@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The TALIC Company</title>
+    <section id="home"></section>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0f4c81; 
+            --primary-hover: #0a365c;
+            --secondary-color: #f3f4f6;
+            --text-main: #333333;
+            --text-light: #111111; 
+            --white: #ffffff;
+            --border-color: #eaeaea;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --contact-box-bg: #ffffff;
+            --contact-box-border: 2px solid #eaeaea;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #60a5fa; 
+            --primary-hover: #3b82f6;
+            --secondary-color: #121212;
+            --text-main: #f3f4f6;
+            --text-light: #ffffff; 
+            --white: #1e1e1e;
+            --border-color: #333333;
+            --nav-bg: rgba(30, 30, 30, 0.95);
+            
+            --contact-box-bg: #1e1e1e;
+            --contact-box-border: 2px solid #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+
+        p {
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        body, header.top-nav, .logo, .nav-links a, .toggle-label, .hero, .hero h1, .hero p, 
+        .content-wrapper, .section-title h2, .section-title p, .service-card, .service-card h3, 
+        .service-card p, .about, .contact-details, .slider,
+        .contact-label, .contact-value-box {
+            transition: background-color var(--transition), 
+                        background var(--transition),
+                        color var(--transition), 
+                        border-color var(--transition), 
+                        opacity var(--transition), 
+                        box-shadow var(--transition);
+        }
+
+        header.top-nav {
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2000; 
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+            margin-left: 50px; 
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .toggle-label.inactive {
+            opacity: 0.3;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .theme-switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: #ffffff;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-main);
+            margin-left: 20px;
+        }
+
+        .hero {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            z-index: 1; 
+            background-color: var(--secondary-color);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.04) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px; 
+            will-change: filter, opacity, transform;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            padding: 10px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            border: 2px solid var(--primary-color);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10; 
+            background-color: var(--white);
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.08); 
+        }
+
+        .services, .about, .contact, .status-section { 
+            padding: 100px 0; 
+        }
+        
+        .section-title {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p { color: var(--text-light); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .service-card h3 { margin-bottom: 15px; font-size: 20px; color: var(--text-main); }
+        .service-card p { color: var(--text-light); font-size: 15px; }
+
+        .about {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contact-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .contact-value-box {
+            background-color: var(--contact-box-bg);
+            border: var(--contact-box-border);
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            display: inline-block;
+            width: 100%;
+        }
+
+        .status-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            width: 100%;
+        }
+
+        footer {
+            background-color: #0f4c81; 
+            color: #ffffff;
+            padding: 60px 0 20px;
+            text-align: left;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 { margin-bottom: 20px; font-size: 18px; color: #ffffff;}
+        .footer-col p, .footer-col a { color: #d1d5db; font-size: 14px; margin-bottom: 10px; display: block; }
+        .footer-col a:hover { color: #ffffff; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .theme-toggle-container { margin-left: auto; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 30px 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+                text-align: center;
+                gap: 20px;
+                border-top: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .hero { position: relative; height: auto; padding: 140px 0 100px; }
+            .hero h1 { font-size: 36px; }
+            .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+            .hero-buttons a { width: 100%; text-align: center; }
+            .services, .about, .contact, .status-section { padding: 60px 0; }
+            .contact-grid { flex-direction: column; gap: 20px; }
+            .contact-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">TALIC.</a>
+            
+            <div class="nav-right">
+                <nav>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="theme-toggle-container">
+                    <span class="toggle-label" id="labelLight">Light</span>
+                    <label class="theme-switch" for="checkbox" title="Toggle Dark Mode">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider"></div>
+                    </label>
+                    <span class="toggle-label inactive" id="labelDark">Dark</span>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </div>
+        </div>
+    </header>
+
+      <section class="hero">
+        <div class="hero-content">
+            <h1>TALIC.CO</h1>
+            <p>Professional app and website development.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">Our Services</a>
+                <a href="#contact" class="btn-outline">Get a Consultation</a>
+                <a href="#meaning" class="btn-outline">What does TALIC stand for?</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-wrapper">
+        
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What We Do</h2>
+                    <p>We provide top-tier technological solutions tailored to your business needs.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Development</h3>
+                        <p>Custom-built websites and applications designed for performance, user experience, and scalability.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Computing</h3>
+                        <p>Robust computing solutions to streamline your workflows, secure your data, and maximize efficiency.</p>
+                    </div>
+                    <div id="meaning" class="service-card">
+                        <h3>What does ALTACS stand for?</h3>
+                        <p>Our name represents our core values and the comprehensive services we provide to our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Us</h2>
+                    <p>Hello, this is Alistair Curtis and Ted Brown. We are the proud owners of Talic.co, a small company that want to create and produce a selection of useful everyday apps that are cheap and affordable for all. Our goal is to make things like practicing for tests and doing your homework easier for all ages. We hope that our range of apps and this website helps you in the future to complete whatever task you have ahead of you.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-row">
+                        <span class="contact-label">Email:</span>
+                        <div class="contact-value-box">contact@example.com</div>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Phone:</span>
+                        <div class="contact-value-box">+44 1234 567890</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Website Status</h2>
+                        <script>
+                    const launchDate = new Date(2026, 0, 15, 22, 6, 0);
+                    function updateTimer() {
+                    const now = new Date();
+                    const diff = now - launchDate;
+                    const msPerDay = 1000 * 60 * 60 * 24;
+                    const msPerYear = msPerDay * 365.25;
+
+                    document.getElementById('years').innerText = Math.floor(diff / msPerYear);
+                    document.getElementById('days').innerText = Math.floor((diff % msPerYear) / msPerDay);
+                    document.getElementById('hours').innerText = Math.floor((diff % msPerDay) / (1000 * 60 * 60));
+                    document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+                    }
+                    setInterval(updateTimer, 1000);
+                        </script>
+                     <body>
+                    <p>
+                  This website was last updated: <span id="years">0</span> years, <span id="days">0</span> days, <span id="hours">0</span> hours, <span id="minutes">0</span> minutes, <span id="seconds">0</span> seconds ago<br><br>
+                  last updated time: 22:06 UTC<br>
+                  last updated date: Sunday 17th May 2026
+                  </p>
+                  </i>
+              </div>
+            </header>
+         </div>
+       </div>
+     </section>
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <a href="#" class="logo" style="color: white; margin-bottom: 15px; display: inline-block;">TALIC.CO</a>
+                        <p>App, Web,<br>Development, Computing</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <a href="#home">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#about">About Us</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact Info</h4>
+                        <p>Email: example@example.com</p>
+                        <p>Phone: +44 1234 567890</p>
+                        <p>Location: United Kingdom</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>People</h4>
+                        <p>Alistair Curtis - copywriter and Creative Director</p>
+                        <p>Ted Brown - Developer</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    &copy; 2026 The TALIC Company. All rights reserved. Alistair Curtis and Ted Brown.
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            const themeToggleInput = document.getElementById('checkbox');
+            const htmlElement = document.documentElement;
+            const labelLight = document.getElementById('labelLight');
+            const labelDark = document.getElementById('labelDark');
+            
+            const updateLabels = (isDark) => {
+                if (isDark) {
+                    labelLight.classList.add('inactive');
+                    labelDark.classList.remove('inactive');
+                } else {
+                    labelLight.classList.remove('inactive');
+                    labelDark.classList.add('inactive');
+                }
+            };
+
+            const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light';
+            htmlElement.setAttribute('data-theme', currentTheme);
+            
+            if (currentTheme === 'dark') {
+                themeToggleInput.checked = true;
+                updateLabels(true);
+            } else {
+                updateLabels(false);
+            }
+
+            themeToggleInput.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    htmlElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateLabels(true);
+                } else {
+                    htmlElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    updateLabels(false);
+                }
+            });
+
+            const heroSection = document.querySelector('.hero');
+            
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth > 768) {
+                    const scrollPosition = window.scrollY;
+                    const yTranslation = scrollPosition * -0.4;
+                    const blurAmount = Math.min(scrollPosition / 25, 15);
+                    const fadeAmount = Math.max(1 - (scrollPosition / 600), 0.2);
+                    
+                    heroSection.style.transform = `translateY(${yTranslation}px)`;
+                    heroSection.style.filter = `blur(${blurAmount}px)`;
+                    heroSection.style.opacity = fadeAmount;
+                } else {
+                    heroSection.style.transform = 'none';
+                    heroSection.style.filter = 'none';
+                    heroSection.style.opacity = '1';
+                }
+            });
+
+            const launchDate = new Date(2026, 0, 15, 22, 6, 0);
+            function updateTimer() {
+                const now = new Date();
+                const diff = now - launchDate;
+                const msPerDay = 1000 * 60 * 60 * 24;
+                const msPerYear = msPerDay * 365.25;
+
+                document.getElementById('years').innerText = Math.floor(diff / msPerYear);
+                document.getElementById('days').innerText = Math.floor((diff % msPerYear) / msPerDay);
+                document.getElementById('hours').innerText = Math.floor((diff % msPerDay) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        });
+    </script>
+</body>
+</html>
