@@ -3,38 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/talic.jpg">
-</link>
+    <link rel="icon" type="image/x-icon" href="/talic.jpg"></link>
     <title>The talic Company</title>
     <section id="home"></section>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0f4c81; 
-            --primary-hover: #0a365c;
+            --primary-color: #1b47a6;
+            --primary-hover: #1b47a6;
             --secondary-color: #f3f4f6;
             --text-main: #333333;
-            --text-light: #111111; 
+            --text-light: #111111;
             --white: #ffffff;
             --border-color: #eaeaea;
             --nav-bg: rgba(255, 255, 255, 0.95);
             --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            
             --contact-box-bg: #ffffff;
             --contact-box-border: 2px solid #eaeaea;
         }
 
         [data-theme="dark"] {
-            --primary-color: #60a5fa; 
+            --primary-color: #60a5fa;
             --primary-hover: #3b82f6;
             --secondary-color: #121212;
             --text-main: #f3f4f6;
-            --text-light: #ffffff; 
+            --text-light: #ffffff;
             --white: #1e1e1e;
             --border-color: #333333;
             --nav-bg: rgba(30, 30, 30, 0.95);
-            
             --contact-box-bg: #1e1e1e;
             --contact-box-border: 2px solid #333333;
         }
@@ -43,7 +39,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
 
         html {
@@ -51,6 +46,7 @@
         }
 
         body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-main);
             line-height: 1.6;
             background-color: var(--secondary-color);
@@ -58,7 +54,7 @@
         }
 
         p {
-            font-weight: 600;
+            font-weight: 500;
         }
 
         a {
@@ -76,28 +72,20 @@
             padding: 0 24px;
         }
 
-        body, header.top-nav, .logo, .nav-links a, .toggle-label, .hero, .hero h1, .hero p, 
-        .content-wrapper, .section-title h2, .section-title p, .service-card, .service-card h3, 
-        .service-card p, .about, .contact-details, .slider,
-        .contact-label, .contact-value-box {
-            transition: background-color var(--transition), 
-                        background var(--transition),
-                        color var(--transition), 
-                        border-color var(--transition), 
-                        opacity var(--transition), 
-                        box-shadow var(--transition);
+        body, header.top-nav, .logo, .nav-links a, .toggle-label, .hero, .hero h1, .hero p, .content-wrapper, .section-title h2, .section-title p, .service-card, .service-card h3, .service-card p, .about, .contact-details, .slider, .contact-label, .contact-value-box {
+            transition: background-color var(--transition), background var(--transition), color var(--transition), border-color var(--transition), opacity var(--transition), box-shadow var(--transition);
         }
 
         header.top-nav {
             background-color: var(--nav-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            z-index: 2000; 
+            z-index: 2000;
         }
 
         .nav-wrapper {
@@ -108,8 +96,10 @@
         }
 
         .logo {
-            font-size: 30px;
-            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -1px;
             color: var(--primary-color);
         }
 
@@ -125,8 +115,10 @@
         }
 
         .nav-links a {
+            font-family: 'Orbitron', sans-serif;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
             color: var(--text-main);
         }
 
@@ -139,12 +131,15 @@
             align-items: center;
             gap: 8px;
             user-select: none;
-            margin-left: 50px; 
+            margin-left: 50px;
         }
 
         .toggle-label {
-            font-size: 14px;
-            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--text-main);
         }
 
@@ -159,7 +154,7 @@
             height: 26px;
         }
 
-        .theme-switch input { 
+        .theme-switch input {
             opacity: 0;
             width: 0;
             height: 0;
@@ -201,15 +196,18 @@
         }
 
         .btn-primary {
+            font-family: 'Orbitron', sans-serif;
             background-color: var(--primary-color);
             color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
             border: none;
             cursor: pointer;
             display: inline-block;
             transition: background-color var(--transition);
+            letter-spacing: 0.5px;
         }
 
         .btn-primary:hover {
@@ -231,14 +229,14 @@
             position: sticky;
             top: 0;
             height: 100vh;
-            z-index: 1; 
+            z-index: 1;
             background-color: var(--secondary-color);
             background-image: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.04) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 80px; 
+            padding-top: 80px;
             will-change: filter, opacity, transform;
         }
 
@@ -248,17 +246,22 @@
         }
 
         .hero h1 {
-            font-size: 54px;
-            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 75px;
+            font-weight: 900;
+            margin-bottom: 24px;
             color: var(--primary-color);
-            line-height: 1.2;
-            letter-spacing: -1px;
+            line-height: 1.1;
+            letter-spacing: -2px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
+            font-weight: 400;
+            font-style: italic;
             color: var(--text-light);
             margin: 0 auto 40px;
+            letter-spacing: -0.3px;
         }
 
         .hero-buttons {
@@ -270,14 +273,17 @@
         }
 
         .btn-outline {
+            font-family: 'Orbitron', sans-serif;
             background-color: transparent;
             color: var(--primary-color);
-            padding: 10px 24px;
-            border-radius: 5px;
-            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
             border: 2px solid var(--primary-color);
             transition: var(--transition);
             display: inline-block;
+            letter-spacing: 0.5px;
         }
 
         .btn-outline:hover {
@@ -287,27 +293,34 @@
 
         .content-wrapper {
             position: relative;
-            z-index: 10; 
+            z-index: 10;
             background-color: var(--white);
-            box-shadow: 0 -20px 40px rgba(0,0,0,0.08); 
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.08);
         }
 
-        .services, .about, .contact, .status-section { 
-            padding: 100px 0; 
+        .services, .about, .contact, .status-section {
+            padding: 100px 0;
         }
-        
+
         .section-title {
             text-align: left;
             margin-bottom: 40px;
         }
 
         .section-title h2 {
-            font-size: 36px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        .section-title p { color: var(--text-light); }
+        .section-title p {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 18px;
+        }
 
         .services-grid {
             display: grid;
@@ -318,15 +331,40 @@
         .service-card {
             background: var(--white);
             padding: 40px 30px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: left;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
         }
 
-        .service-card h3 { margin-bottom: 15px; font-size: 20px; color: var(--text-main); }
-        .service-card p { color: var(--text-light); font-size: 15px; }
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+
+        #meaning.service-card h3 {
+            font-style: italic;
+        }
 
         .about {
             background-color: var(--secondary-color);
+        }
+
+        .about .section-title p {
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.8;
         }
 
         .contact-grid {
@@ -345,21 +383,25 @@
         }
 
         .contact-label {
-            font-size: 18px;
-            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--text-main);
         }
 
         .contact-value-box {
             background-color: var(--contact-box-bg);
             border: var(--contact-box-border);
-            border-radius: 6px;
-            padding: 12px 24px;
+            border-radius: 8px;
+            padding: 14px 24px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-light);
             display: inline-block;
             width: 100%;
+            letter-spacing: -0.2px;
         }
 
         .status-container {
@@ -371,10 +413,22 @@
             width: 100%;
         }
 
+        .status-section p {
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: -0.2px;
+        }
+
+        .status-section span {
+            font-weight: 800;
+            font-style: italic;
+            color: var(--primary-color);
+        }
+
         footer {
-            background-color: #0f4c81; 
+            background-color: #1e3a8a;
             color: #ffffff;
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
             text-align: left;
         }
 
@@ -385,20 +439,55 @@
             margin-bottom: 40px;
         }
 
-        .footer-col h4 { margin-bottom: 20px; font-size: 18px; color: #ffffff;}
-        .footer-col p, .footer-col a { color: #d1d5db; font-size: 14px; margin-bottom: 10px; display: block; }
-        .footer-col a:hover { color: #ffffff; }
+        .footer-col h4 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .footer-col p {
+            font-weight: 400;
+        }
+
+        .footer-col .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #d1d5db;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: #ffffff;
+        }
+
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 14px;
-            color: #d1d5db;
+            font-size: 13px;
+            font-weight: 400;
+            color: #9ca3af;
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-            .theme-toggle-container { margin-left: auto; }
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .theme-toggle-container {
+                margin-left: auto;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -415,23 +504,55 @@
                 gap: 20px;
                 border-top: 1px solid var(--border-color);
             }
-            .nav-links.active { display: flex; }
-            .hero { position: relative; height: auto; padding: 140px 0 100px; }
-            .hero h1 { font-size: 36px; }
-            .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
-            .hero-buttons a { width: 100%; text-align: center; }
-            .services, .about, .contact, .status-section { padding: 60px 0; }
-            .contact-grid { flex-direction: column; gap: 20px; }
-            .contact-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                position: relative;
+                height: auto;
+                padding: 140px 0 100px;
+            }
+
+            .hero h1 {
+                font-size: 54px;
+                letter-spacing: -1px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .services, .about, .contact, .status-section {
+                padding: 60px 0;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
         }
     </style>
 </head>
 <body>
-
     <header class="top-nav">
         <div class="container nav-wrapper">
-            <a href="#" class="logo">TALIC.</a>
-            
+            <a href="#" class="logo">the talic company </a>
             <div class="nav-right">
                 <nav>
                     <ul class="nav-links" id="navLinks">
@@ -441,7 +562,6 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
-                
                 <div class="theme-toggle-container">
                     <span class="toggle-label" id="labelLight">Light</span>
                     <label class="theme-switch" for="checkbox" title="Toggle Dark Mode">
@@ -450,16 +570,15 @@
                     </label>
                     <span class="toggle-label inactive" id="labelDark">Dark</span>
                 </div>
-                
                 <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             </div>
         </div>
     </header>
 
-      <section class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <h1>TALIC.CO</h1>
-            <p>Professional app and website development.</p>
+            <h1>the talic co</h1>
+            <p>Professional app and website development. (and more).</p>
             <div class="hero-buttons">
                 <a href="#services" class="btn-primary">Our Services</a>
                 <a href="#contact" class="btn-outline">Get a Consultation</a>
@@ -469,14 +588,12 @@
     </section>
 
     <main class="content-wrapper">
-        
         <section id="services" class="services">
             <div class="container">
                 <div class="section-title">
                     <h2>What We Do</h2>
                     <p>We provide top-tier technological solutions tailored to your business needs.</p>
                 </div>
-                
                 <div class="services-grid">
                     <div class="service-card">
                         <h3>Development</h3>
@@ -487,7 +604,7 @@
                         <p>Robust computing solutions to streamline your workflows, secure your data, and maximize efficiency.</p>
                     </div>
                     <div id="meaning" class="service-card">
-                        <h3>What does ALTACS stand for?</h3>
+                        <h3>What does talic stand for?</h3>
                         <p>Our name represents our core values and the comprehensive services we provide to our clients.</p>
                     </div>
                 </div>
@@ -515,44 +632,35 @@
                     </div>
                     <div class="contact-row">
                         <span class="contact-label">Phone:</span>
-                        <div class="contact-value-box">+44 7768939100  or  +44 7368616641</div>
+                        <div class="contact-value-box">+44 7768939100 or +44 7368616641</div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <section id="about" class="about">
+        <section id="about" class="about">
             <div class="container">
                 <div class="section-title">
                     <h2>Website Status</h2>
-                        <script>
-                    const launchDate = new Date(2026, 0, 15, 22, 6, 0);
-                    function updateTimer() {
-                    const now = new Date();
-                    const diff = now - launchDate;
-                    const msPerDay = 1000 * 60 * 60 * 24;
-                    const msPerYear = msPerDay * 365.25;
+                    <script>
+                        const launchDate = new Date(2026, 0, 15, 22, 6, 0);
+                        function updateTimer() {
+                            const now = new Date();
+                            const diff = now - launchDate;
+                            const msPerDay = 1000 * 60 * 60 * 24;
+                            const msPerYear = msPerDay * 365.25;
+                            document.getElementById('years').innerText = Math.floor(diff / msPerYear);
+                            document.getElementById('days').innerText = Math.floor((diff % msPerYear) / msPerDay);
+                            document.getElementById('hours').innerText = Math.floor((diff % (msPerDay)) / (1000 * 60 * 60));
+                            document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                            document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+                        }
+                        setInterval(updateTimer, 1000);
+                    </script>
+                    <body>
+                        <p>This website was last updated: <span id="years">0</span> years, <span id="days">0</span> days, <span id="hours">0</span> hours, <span id="minutes">0</span> minutes, <span id="seconds">0</span> seconds ago<br><br>last updated time: 22:06 UTC<br>last updated date: Sunday 17th May 2026</p>
+                    </i></div></header></div></div></section>
 
-                    document.getElementById('years').innerText = Math.floor(diff / msPerYear);
-                    document.getElementById('days').innerText = Math.floor((diff % msPerYear) / msPerDay);
-                    document.getElementById('hours').innerText = Math.floor((diff % msPerDay) / (1000 * 60 * 60));
-                    document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                    document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
-                    }
-                    setInterval(updateTimer, 1000);
-                        </script>
-                     <body>
-                    <p>
-                  This website was last updated: <span id="years">0</span> years, <span id="days">0</span> days, <span id="hours">0</span> hours, <span id="minutes">0</span> minutes, <span id="seconds">0</span> seconds ago<br><br>
-                  last updated time: 22:06 UTC<br>
-                  last updated date: Sunday 17th May 2026
-                  </p>
-                  </i>
-              </div>
-            </header>
-         </div>
-       </div>
-     </section>
         <footer>
             <div class="container">
                 <div class="footer-grid">
@@ -579,9 +687,7 @@
                         <p>Ted Brown - Developer</p>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    &copy; 2026 The TALIC Company. All rights reserved. Alistair Curtis and Ted Brown.
-                </div>
+                <div class="footer-bottom">&copy; 2026 The TALIC Company. All rights reserved. Alistair Curtis and Ted Brown.</div>
             </div>
         </footer>
     </main>
@@ -606,7 +712,7 @@
             const htmlElement = document.documentElement;
             const labelLight = document.getElementById('labelLight');
             const labelDark = document.getElementById('labelDark');
-            
+
             const updateLabels = (isDark) => {
                 if (isDark) {
                     labelLight.classList.add('inactive');
@@ -619,7 +725,6 @@
 
             const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light';
             htmlElement.setAttribute('data-theme', currentTheme);
-            
             if (currentTheme === 'dark') {
                 themeToggleInput.checked = true;
                 updateLabels(true);
@@ -640,14 +745,12 @@
             });
 
             const heroSection = document.querySelector('.hero');
-            
             window.addEventListener('scroll', () => {
                 if (window.innerWidth > 768) {
                     const scrollPosition = window.scrollY;
                     const yTranslation = scrollPosition * -0.4;
                     const blurAmount = Math.min(scrollPosition / 25, 15);
                     const fadeAmount = Math.max(1 - (scrollPosition / 600), 0.2);
-                    
                     heroSection.style.transform = `translateY(${yTranslation}px)`;
                     heroSection.style.filter = `blur(${blurAmount}px)`;
                     heroSection.style.opacity = fadeAmount;
@@ -664,10 +767,9 @@
                 const diff = now - launchDate;
                 const msPerDay = 1000 * 60 * 60 * 24;
                 const msPerYear = msPerDay * 365.25;
-
                 document.getElementById('years').innerText = Math.floor(diff / msPerYear);
                 document.getElementById('days').innerText = Math.floor((diff % msPerYear) / msPerDay);
-                document.getElementById('hours').innerText = Math.floor((diff % msPerDay) / (1000 * 60 * 60));
+                document.getElementById('hours').innerText = Math.floor((diff % (msPerDay)) / (1000 * 60 * 60));
                 document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
             }
